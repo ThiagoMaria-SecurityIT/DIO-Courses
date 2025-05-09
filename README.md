@@ -35,7 +35,7 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 
 ## 🖼️ Print do App Funcionando
 
-![Tela Principal da Aplicação](imagens/main2.png)  
+![Tela Principal da Aplicação](imagens/imagens/mainapp.jpg)  
 *Tela principal da aplicação rodando localmente via `streamlit run main.py`.*
 
 ---
