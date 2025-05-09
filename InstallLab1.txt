@@ -41,7 +41,42 @@ Requeriments:    --- pip show setuptools ---- PIP SHOW ---
 
 14 - Install secp256k1-py
 15 - Try install the packages again if were with error
+16 - Once secp256k1 is built and installed:
+	 A - Install toolchains After secp256k1 Is Installed
+		pip install dist/secp256k1-0.14.0-cp313-none-win_amd64.whl
+	B - Then try installing toolchains:
+		pip install toolchains
+
+	obs.: C and D are not necessary if A and B run ok 
+	C - If there’s no wheel, you may also need to build toolchains from source:
+			git clone https://github.com/toolchains/toolchains.git 
+			cd toolchains
+			python setup.py build
+			python setup.py bdist_wheel
+			pip install dist/toolchains-*.whl
+	D - Optional: Use Prebuilt Wheels (if available)
+		Some projects provide unofficial wheels at https://www.lfd.uci.edu/~gohlke/pythonlibs/
+		Check if secp256k1 has a wheel for cp313.
 16 - Install pymssql
 	pip install pymssql
 
 Thats it - I will review this .txt and maybe add how compile what you need
+
+Final Notes for future reference
+	For developers who read this later:
+
+| Tool 		                 		   | Installed via |
+| ------------------------------------------------ |:--------------------------------------------------------------:|
+| pymssql    					   | pip install pymssql (works fine)                               |
+| streamlit, azure-storage-blob, python-dotenv     | pip install(all supported on Python 3.13)                      |
+| secp256k1					   | Must be compiled manually or downloaded from unofficial builds |
+| toolchains                                       | Requires secp256k1, must be built from source or via wheel     |
+
+Building packages manually like this is necessary when precompiled wheels don’t exist (like for Python 3.13)
+If you ever switch to a supported Python version (like 3.11 or 3.12), you’ll likely find prebuilt wheels at PyPI or [Gohlke's site (https://www.lfd.uci.edu/~gohlke/pythonlibs/ #secp256k1).
+
+The issue was not with dotenv, pymssql, or streamlit. It’s with secp256k1 and toolchains , which require native extensions and are not available as wheels for Python 3.13  yet.
+	Why pip install toolchains Fails:
+   		 The toolchains package pulls in secp256k1 as a dependency.
+			secp256k1 has no pre-built wheel for Python 3.13 on Windows
+			Pip tries to compile it from source but fails due to missing build tools or incompatible headers.
