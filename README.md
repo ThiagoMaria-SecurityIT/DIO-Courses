@@ -35,6 +35,7 @@ Carregar variáveis de ambiente a partir do arquivo
 
 ## 🖼️ Print do App Funcionando
 
+
 ![Tela Principal da Aplicação](imagens/4.jpg)  
 *Tela principal da aplicação rodando localmente via `streamlit run main.py`.*
 
