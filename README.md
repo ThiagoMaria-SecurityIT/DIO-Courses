@@ -50,7 +50,7 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 
 ## ❌ Como Deletar um Produto
 
-![Deletar Produto](imagens/dele.jpg)  
+![Deletar Produto](imagens/1.jpg)  
 *Exemplo de como remover um produto do banco de dados usando a interface.*
 
 ### 🧾 Explicando o uso do Azure Blob Storage no projeto
