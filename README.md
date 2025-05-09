@@ -1,17 +1,17 @@
 DIO - Cursos\\
 Repositório para os cursos da DIO: Começando com o Microsoft Azure Cloud Native\\
 
-🧪 DIO - Microsoft Azure Cloud Native: Lab 1\\
+🧪 DIO - Microsoft Azure Cloud Native: Lab 1 \\
 
-Projeto desenvolvido durante o curso da DIO sobre Microsoft Azure Cloud Native\\
+Projeto desenvolvido durante o curso da DIO sobre Microsoft Azure Cloud Native \\
 
-Objetivo do LAB\\
+Objetivo do LAB \\
 Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce fictício, utilizando Python com as seguintes tecnologias:\\
 
 Streamlit : Interface web interativa\\
-Azure Storage Blob : Armazenamento em nuvem para imagens.\\
-pymssql : Conexão com banco de dados SQL Server no Azure.\\
-python-dotenv : Gerenciamento de variáveis de ambiente.\\
+Azure Storage Blob : Armazenamento em nuvem para imagens \\
+pymssql : Conexão com banco de dados SQL Server no Azure \\
+python-dotenv : Gerenciamento de variáveis de ambiente \\
 
 O que aprendi:\\
 Usar pymssql para conectar a aplicação Python ao SQL Server no Azure.\\
