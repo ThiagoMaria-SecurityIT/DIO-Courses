@@ -43,7 +43,7 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 
 ## 📷 Exemplo de Listagem de Produtos
 
-![Produtos Cadastrados](imagens/listag2.png)  
+![Produtos Cadastrados](imagens/listag2.png)
 
 *Listagem dos produtos cadastrados na interface do Streamlit.*
 
