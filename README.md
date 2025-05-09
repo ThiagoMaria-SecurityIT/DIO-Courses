@@ -2,7 +2,8 @@ DIO - Cursos\\
 Repositório para os cursos da DIO: Começando com o Microsoft Azure Cloud Native\\
 
 🧪 DIO - Microsoft Azure Cloud Native: Lab 1\\
-Projeto desenvolvido durante o curso da DIO sobre Microsoft Azure Cloud Native .\\
+
+Projeto desenvolvido durante o curso da DIO sobre Microsoft Azure Cloud Native\\
 
 Objetivo do LAB\\
 Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce fictício, utilizando Python com as seguintes tecnologias:\\
