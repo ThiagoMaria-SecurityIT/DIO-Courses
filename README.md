@@ -28,6 +28,11 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 
 ⚠️ A versão do pymssql pode apresentar problemas de compilação no Windows. Solução usada: MSYS2 + FreeTDS (Alternativas futuras podem incluir pyodbc).
 
+## Vídeo do funcionamento do programa no VS Code e navegador web
+[Youtube Video - Clique aqui para assistir](https://www.youtube.com/watch?v=KMIRbP-MutE )
+
+[![Thumbnail do Vídeo](https://img.youtube.com/vi/KMIRbP-MutE/hqdefault.jpg )](https://www.youtube.com/watch?v=KMIRbP-MutE )
+
 ## 🖼️ Print do App Funcionando
 
 ![Tela Principal da Aplicação](imagens/main2.png)  
@@ -46,10 +51,7 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 
 ![Deletar Produto](imagens/dele.jpg)  
 *Exemplo de como remover um produto do banco de dados usando a interface.*
-## Vídeo do funcionamento do programa no VS Code e navegador web
-[Youtube Video - Clique aqui para assistir](https://www.youtube.com/watch?v=KMIRbP-MutE )
 
-[![Thumbnail do Vídeo](https://img.youtube.com/vi/KMIRbP-MutE/hqdefault.jpg )](https://www.youtube.com/watch?v=KMIRbP-MutE )
 ### 🧾 Explicando o uso do Azure Blob Storage no projeto
 
     O que é o Azure Blob Storage?
