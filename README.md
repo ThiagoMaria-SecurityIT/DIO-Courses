@@ -7,7 +7,7 @@ Projeto desenvolvido durante o curso da DIO sobre Microsoft Azure Cloud Native .
 Objetivo do LAB\\
 Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce fictício, utilizando Python com as seguintes tecnologias:\\
 
-Streamlit : Interface web interativa.\\
+Streamlit : Interface web interativa\\
 Azure Storage Blob : Armazenamento em nuvem para imagens.\\
 pymssql : Conexão com banco de dados SQL Server no Azure.\\
 python-dotenv : Gerenciamento de variáveis de ambiente.\\
