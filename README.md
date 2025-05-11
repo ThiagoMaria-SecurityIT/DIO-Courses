@@ -1,4 +1,5 @@
 # DIO - Cursos
+
 ## Repositório para os cursos da DIO: Começando com o Microsoft Azure Cloud Native
 
 ### 🧪 DIO - Microsoft Azure Cloud Native: Lab 1
@@ -29,48 +30,51 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 ⚠️ A versão do pymssql pode apresentar problemas de compilação no Windows. Solução usada: MSYS2 + FreeTDS (Alternativas futuras podem incluir pyodbc).
 
 ## Vídeo do funcionamento do programa no VS Code e navegador web
-[Youtube Video - Clique aqui para assistir](https://www.youtube.com/watch?v=KMIRbP-MutE )
+[Youtube Video - Clique aqui para assistir](https://www.youtube.com/watch?v=KMIRbP-MutE    )
 
-[![Thumbnail do Vídeo](https://img.youtube.com/vi/KMIRbP-MutE/hqdefault.jpg )](https://www.youtube.com/watch?v=KMIRbP-MutE )
+[![Thumbnail do Vídeo](https://img.youtube.com/vi/KMIRbP-MutE/hqdefault.jpg    )](https://www.youtube.com/watch?v=KMIRbP-MutE    )
+
+---
 
 ## 🖼️ Print do App Funcionando
 
-![Tela Principal da Aplicação](imagens/telainicial.png)
+### Tela do Streamlit feito no Python
 
-*Tela principal da aplicação rodando localmente via `streamlit run main.py`.*
+<table>
+  <tr>
+    <td><img src="imagens/telainicial.png" alt="Tela Inicial" width="500"></td>
+    <td><img src="imagens/listag2.png" alt="Listagem de Produtos" width="450"></td>
+    <td><img src="imagens/dele.jpg" alt="Deletar Produto" width="300"></td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">1- Tela inicial</td>
+    <td style="text-align: center;">2- Listagem de produtos</td>
+    <td style="text-align: center;">3- Deletar produto (É o botão "Excluir" que fica embaixo de cada imagem) </td>
+  </tr>
+</table>
 
 ---
-
-## 📷 Exemplo de Listagem de Produtos
-
-![Produtos Cadastrados](imagens/listag2.png)
-
-*Listagem dos produtos cadastrados na interface do Streamlit.*
-
----
-
-## ❌ Como Deletar um Produto
-
-![Deletar Produto](imagens/1.jpg)  
-
-*Exemplo de como remover um produto do banco de dados usando a interface.*
 
 ### 🧾 Explicando o uso do Azure Blob Storage no projeto
 
-    O que é o Azure Blob Storage?
+**O que é o Azure Blob Storage?**
 O Azure Blob Storage é um serviço da Microsoft Azure usado para armazenar grandes quantidades de dados não estruturados na nuvem, como textos, imagens, vídeos, documentos, backups e muito mais.
 
-No contexto do nosso projeto, ele será responsável por armazenar as imagens dos produtos cadastrados via interface web (Streamlit), enquanto os dados dos produtos ficam em um banco de dados SQL Server também hospedado no Azure .
+No contexto do nosso projeto, ele será responsável por armazenar as imagens dos produtos cadastrados via interface web (Streamlit), enquanto os dados dos produtos ficam em um banco de dados SQL Server também hospedado no Azure.
 
-    Como funciona a arquitetura?
-#### 1.	Interface Web (Streamlit)
-* Desenvolvida com Python.
-* Permite ao usuário cadastrar, consultar e deletar produtos com nome, descrição, preço e imagem.
-#### 2.	Upload da Imagem
-* A imagem selecionada pelo usuário é enviada diretamente para o Azure Blob Storage .
-* Após o upload, o serviço retorna uma URL pública ou SAS Token (dependendo da configuração) para acessar essa imagem.
-#### 3. Cadastro no Banco de Dados
-* Os dados do produto (nome, descrição, preço) são salvos no SQL Server no Azure .
-* A URL da imagem (gerada pelo Blob Storage) também é salva junto com esses dados.
-#### 4.Exibição dos Produtos
-•	Quando a lista de produtos é carregada, o sistema busca as informações do banco de dados e exibe a imagem usando a URL armazenada
+**Como funciona a arquitetura?**
+
+1. **Interface Web (Streamlit)**
+   * Desenvolvida com Python.
+   * Permite ao usuário cadastrar, consultar e deletar produtos com nome, descrição, preço e imagem.
+
+2. **Upload da Imagem**
+   * A imagem selecionada pelo usuário é enviada diretamente para o Azure Blob Storage.
+   * Após o upload, o serviço retorna uma URL pública ou SAS Token (dependendo da configuração) para acessar essa imagem.
+
+3. **Cadastro no Banco de Dados**
+   * Os dados do produto (nome, descrição, preço) são salvos no SQL Server no Azure.
+   * A URL da imagem (gerada pelo Blob Storage) também é salva junto com esses dados.
+
+4. **Exibição dos Produtos**
+   * Quando a lista de produtos é carregada, o sistema busca as informações do banco de dados e exibe a imagem usando a URL armazenada.
