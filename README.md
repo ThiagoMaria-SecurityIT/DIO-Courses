@@ -43,7 +43,7 @@ Criar uma interface web interativa usando Streamlit e Python para cadastro de pr
 <table>
   <tr>
     <td><img src="imagens/telainicial.png" alt="Tela Inicial" width="500"></td>
-    <td><img src="imagens/listag2.png" alt="Listagem de Produtos" width="450"></td>
+    <td><img src="imagens/listag2.png" alt="Listagem de Produtos" width="500"></td>
     <td><img src="imagens/dele.jpg" alt="Deletar Produto" width="300"></td>
   </tr>
   <tr>
