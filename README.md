@@ -12,7 +12,7 @@ Projeto desenvolvido durante o curso **"Microsoft Azure Cloud Native"** da DIO. 
 ## 📋 Índice
 
 1. [🎯 Objetivo do Projeto](#objetivo-do-projeto)  
-2. [💡 O Que Aprendi](#o-que-aprendi)  
+2. [💡 O Que foi feito/utilizado](#o-que-aprendi)  
 3. [🧰 Pacotes Utilizados](#pacotes-utilizados)
 4. [🖼️ Print do App Funcionando](#print-do-app-funcionando)  
 5. [🎥 Vídeo do Funcionamento](#vídeo-do-funcionamento)  
