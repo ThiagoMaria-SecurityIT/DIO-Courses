@@ -16,18 +16,18 @@ Projeto desenvolvido durante o curso **"Microsoft Azure Cloud Native"** da DIO. 
 3. [🧰 Pacotes Utilizados](#pacotes-utilizados)
 4. [🖼️ Print do App Funcionando](#print-do-app-funcionando)  
 5. [🎥 Vídeo do Funcionamento](#vídeo-do-funcionamento)  
-6. [☁️ Parte do Azure](#parte-do-azure)  
-7. [🗃️ Parte do SQL Server](#parte-do-sql-server)  
-8. [🗄️ Parte do SQL Database](#parte-do-sql-database)  
-9. [💾 Parte do Storage Account](#parte-do-storage-account)  
-10. [🐍 Parte do Python](#parte-do-python)  
+6. [☁️ Azure](#parte-do-azure)  
+7. [🗃️ SQL Server](#parte-do-sql-server)  
+8. [🗄️ SQL Database](#parte-do-sql-database)  
+9. [💾 Storage Account](#parte-do-storage-account)  
+10. [🐍 Python](#parte-do-python)  
 11. [🏗️ Arquitetura do Projeto](#arquitetura-do-projeto)  
 12. [📌 Considerações Finais](#considerações-finais)
 
-##### Obs.: Os mascaramentos nas imagens são para <mark>__concientização sobre Segurança da Informação__</mark>, pois o firewall do SQL server foi configurado para rodar somente no IP do computatdor que utilizo como laboratório(explicação na parte 7. 🗃️ Parte do SQL Server). Então mesmo com o nome servidor, login e senha não é possível conectar no server com outro IP.
+##### Obs.: Configurei regras de firewall no Azure para permitir acesso ao servidor somente a partir do meu IP público atual. Isso adiciona uma camada extra de segurança, pois, mesmo que alguém descubra o nome do servidor, usuário e senha, ele ainda precisaria estar conectando a partir de um IP autorizado. Porém, isso não elimina a necessidade de manter senhas seguras, usar autenticação multifatorial e controlar os acessos com políticas de segurança rigorosas. Os mascaramentos nas imagens são parte de uma campanha de conscientização em Segurança da Informação, alertando sobre os riscos de expor dados sensíveis desnecessariamente. 
 ---
 
-## 1. 🎯 Objetivo do Projeto
+## 1. <span id="objetivo-do-projeto">🎯 Objetivo do Projeto</span>
 
 Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce fictício, utilizando:
 - **Interface Web**: [Streamlit](https://streamlit.io/) (Python)
@@ -36,7 +36,7 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 
 ---
 
-## 2. 💡 O Que Aprendi
+## 2. <span id="o-que-aprendi">💡 O Que Aprendi</span>
 
 - Criar um servidor no Azure do zero  
 - Conectar Python ao SQL Server no Azure usando `pymssql`
@@ -47,7 +47,7 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 
 ---
 
-## 3. 🧰 Pacotes Utilizados
+## 3. <span id="pacotes-utilizados">🧰 Pacotes Utilizados</span>
 
 | Pacote             | Finalidade |
 |--------------------|------------|
@@ -58,7 +58,7 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 ⚠️ *O `pymssql` pode apresentar problemas de compilação no Windows. Solução usada: MSYS2 + FreeTDS*
 
 ---
-## 4. 🖼️ Print do App Funcionando
+## 4. <span id="print-do-app-funcionando">🖼️ Print do App Funcionando</span>
 
 ### Tela do Streamlit feito no Python
 
@@ -77,14 +77,14 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 
 ---
 
-## 5. 🎥 Vídeo do Funcionamento
+## 5. <span id="vídeo-do-funcionamento">🎥 Vídeo do Funcionamento</span>
 
 [Youtube Video - Clique aqui para assistir](https://www.youtube.com/watch?v=KMIRbP-MutE)
 
 [![Thumbnail do Vídeo](https://img.youtube.com/vi/KMIRbP-MutE/hqdefault.jpg    )](https://www.youtube.com/watch?v=KMIRbP-MutE    )
 
 ---
-## 6. ☁️ Parte do Azure
+## 6. <span id="parte-do-azure">☁️ Azure</span>
 
 ### 🖼️ Print do Portal do Azure (com mascaramento)
 
@@ -103,7 +103,7 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 
 ---
 
-## 7. 🗃️ Parte do SQL Server
+## 7. <span id="parte-do-sql-server">🗃️ SQL Server</span>
 
 ### 🔒 Configuração de Segurança do SQL Server
 
@@ -113,9 +113,9 @@ Para garantir a segurança do SQL Server, configurei as regras de firewall para 
   - Essa opção restringe o acesso ao SQL Server apenas aos IPs configurados nas regras de firewall.
 
 - **Regras de Firewall**:
-  - Adicionei uma regra específica para permitir o acesso do meu computador local, usando o IP público do meu dispositivo.
-  - Mesmo que alguém tenha o nome do server, login e senha não vão conseguir conectar.
-  - Por isso, os mascaramentos nas imagens são para <mark>__concientização sobre Segurança da Informação__</mark>, pois mesmo com o nome, login e senha não é possível conectar no server com outro IP.
+  - Configurei uma regra de firewall para permitir acesso ao servidor apenas a partir do meu IP público atual. 
+  - Isso significa que, mesmo que alguém descubra o nome do servidor, usuário e senha, ainda assim não será possível se conectar se o acesso não estiver vindo de um IP autorizado. 
+  - Os mascaramentos nas imagens fazem parte de uma iniciativa de <mark>conscientização em Segurança da Informação </mark>, alertando sobre os riscos de expor dados sensíveis desnecessariamente — afinal, nenhuma medida isolada garante 100% de segurança. 
 
 ![Configuração de Firewall do SQL Server](imagens/SQLserverfirewallip.png)
 
@@ -129,7 +129,7 @@ Para garantir a segurança do SQL Server, configurei as regras de firewall para 
 
 ---
 
-## 8. 🗄️ Parte do SQL Database
+## 8. <span id="parte-do-sql-database">🗄️ SQL Database </span>
 
 ### 📄 Query Simples Utilizada
 
@@ -161,7 +161,7 @@ A query foi executada diretamente no **Query Editor** do Azure SQL Database, sem
 
 ---
 
-## 9. 💾 Parte do Storage Account
+## 9. <span id="parte-do-storage-account">💾 Storage Account</span>
 
 ### 📁 Tipos de Armazenamento Disponíveis
 
@@ -178,7 +178,7 @@ O **Storage Account** oferece várias opções de armazenamento:
 
 ---
 
-## 10. 🐍 Parte do Python
+## 10. <span id="parte-do-python">🐍 Pthon</span>
 
 ### 🧱 Estrutura do Código
 
@@ -320,7 +320,7 @@ def delete_blob(blob_name):
 
 ---
 
-## 11. 🏗️ Arquitetura do Projeto
+## 11. <span id="arquitetura-do-projeto">🏗️ Arquitetura do Projeto</span>
 
 Aqui estão os diagramas que ilustram a arquitetura e o fluxo de trabalho do projeto:
 
@@ -364,7 +364,7 @@ Aqui estão os diagramas que ilustram a arquitetura e o fluxo de trabalho do pro
   - A imagem é excluída do Blob Storage.
   - O registro é removido do SQL Server.
 
-## 12. 📌 Considerações Finais
+# 12. <span id="considerações-finais">📌 Considerações Finais</span>
 
 Esse projeto me permitiu aprender sobre integração entre aplicações locais (Python) e serviços na nuvem (Azure), além de lidar com problemas reais de compatibilidade e segurança ao trabalhar com APIs e credenciais sensíveis.
 Obrigado DIO e a todos envolvidos!
