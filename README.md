@@ -24,7 +24,7 @@ Projeto desenvolvido durante o curso **"Microsoft Azure Cloud Native"** da DIO. 
 11. [🏗️ Arquitetura do Projeto](#arquitetura-do-projeto)  
 12. [📌 Considerações Finais](#considerações-finais)
 
-##### Obs.: Configurei regras de firewall no Azure para permitir acesso ao servidor somente a partir do meu IP público atual. Isso adiciona uma camada extra de segurança, pois, mesmo que alguém descubra o nome do servidor, usuário e senha, ele ainda precisaria estar conectando a partir de um IP autorizado. Porém, isso não elimina a necessidade de manter senhas seguras, usar autenticação multifatorial e controlar os acessos com políticas de segurança rigorosas. Os mascaramentos nas imagens são parte de uma campanha de conscientização em Segurança da Informação, alertando sobre os riscos de expor dados sensíveis desnecessariamente. 
+##### Obs.: Configurei regras de firewall no Azure para permitir acesso ao servidor somente a partir de um IP própio para o LAB. Isso adiciona uma camada extra de segurança, pois, mesmo que alguém descubra o nome do servidor, usuário e senha, ele ainda precisaria estar conectando a partir de um IP autorizado. Porém, isso não elimina a necessidade de manter senhas seguras, usar autenticação multifatorial e controlar os acessos com políticas de segurança rigorosas. Os mascaramentos nas imagens são parte de uma campanha de conscientização em Segurança da Informação, alertando sobre os riscos de expor dados sensíveis desnecessariamente. 
 ---
 
 ## 1. <span id="objetivo-do-projeto">🎯 Objetivo do Projeto</span>
@@ -36,14 +36,14 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 
 ---
 
-## 2. <span id="o-que-aprendi">💡 O Que Aprendi</span>
+## 2. <span id="o-que-aprendi">💡 O Que foi feito/utilizado</span>
 
-- Criar um servidor no Azure do zero  
-- Conectar Python ao SQL Server no Azure usando `pymssql`
-- Resolver problemas de compatibilidade com Python 3.13 no Windows  
-- Configurar ambientes virtuais (`venv`) para evitar conflitos  
-- Usar MSYS2 e FreeTDS para instalar bibliotecas nativas  
-- Integrar interface web com serviços na nuvem (Azure)
+- Montagem de um servidor na nuvem (Azure) do início : configurado um computador remoto (na plataforma Azure) prontinho para rodar nossas aplicações.  
+- Conexão entre Python e banco de dados SQL no Azure : feito com que o programa em Python conseguisse “conversar” com o banco de dados SQL hospedado no Azure, usando uma ferramenta chamada pymssql. 
+- Adaptação para funcionar com a nova versão do Python (3.13) no Windows : ajustado o ambiente para rodar sem problemas com a versão mais recente do Python, que ainda não é totalmente compatível com tudo. 
+- Uso de ambientes isolados (venv) : criado "espaços separados" para cada projeto, evitando conflitos entre programas diferentes ou versões de bibliotecas. 
+- Instalação de ferramentas essenciais com MSYS2 e FreeTDS : foram utilizadas essas ferramentas para conseguir instalar partes importantes do projeto que dependem de configurações do sistema operaciona.  
+- Integração entre uma interface web e serviços na nuvem (Azure) : conectada uma interface visual (com o Streamlit) com os recursos que estão na nuvem, como o servidor e o banco de dados. 
 
 ---
 
@@ -101,31 +101,39 @@ Criar uma infraestrutura no Azure para armazenamento de dados de um e-commerce f
 - O **Storage Account** usado é `stadevlab0**eastusthiago`.
 - As credenciais são gerenciadas por variáveis de ambiente via `.env`.
 
+ 
+> [!IMPORTANT]
+> - Neste projeto, optei por mostrar os nomes dos recursos criados (como Resource Group, SQL Server e Storage Account) para facilitar a compreensão do fluxo de configuração e integração entre os serviços. 
+> - Ressalto que este é um ambiente de laboratório e estudo, não sendo um ambiente de produção. Em sistemas reais, recomenda-se seguir práticas mais rígidas de anonimização e controle de acesso, além do uso de ferramentas como Azure Key Vault para gerenciamento de segredos. 
 ---
 
 ## 7. <span id="parte-do-sql-server">🗃️ SQL Server</span>
 
 ### 🔒 Configuração de Segurança do SQL Server
 
-Para garantir a segurança do SQL Server, configurei as regras de firewall para permitir acesso apenas a endereços IP específicos. Isso evita acessos não autorizados à base de dados.
+ - Para aumentar a proteção do banco de dados, configurei as regras de firewall do SQL Server para liberar acesso somente a certos endereços de rede confiáveis .
+Essa medida ajuda a evitar conexões indevidas e garante que apenas os ambientes autorizados possam se comunicar com o banco de dados.
 
-- **Opção Selecionada**: `Selected networks`
-  - Essa opção restringe o acesso ao SQL Server apenas aos IPs configurados nas regras de firewall.
+> [!TIP]
+>- **Opção Selecionada**: `Selected networks`
+>  - Essa opção restringe o acesso ao SQL Server apenas aos IPs configurados nas regras de firewall.
 
-- **Regras de Firewall**:
-  - Configurei uma regra de firewall para permitir acesso ao servidor apenas a partir do meu IP público atual. 
-  - Isso significa que, mesmo que alguém descubra o nome do servidor, usuário e senha, ainda assim não será possível se conectar se o acesso não estiver vindo de um IP autorizado. 
-  - Os mascaramentos nas imagens fazem parte de uma iniciativa de <mark>conscientização em Segurança da Informação </mark>, alertando sobre os riscos de expor dados sensíveis desnecessariamente — afinal, nenhuma medida isolada garante 100% de segurança. 
+- **Regras de Firewall**: 
+  - Para garantir mais segurança, foi configurada uma regra de firewall que controla quem pode se conectar ao servidor (antes, o acesso era liberado apenas para o IP do computador do meu laboratório).
+  - Assim, mesmo que alguém tenha as credenciais corretas (como usuário e senha), não será possível acessar o sistema sem passar por essa camada extra de verificação.
+  - Os trechos ocultados nas imagens fazem parte de um esforço para conscientizar sobre a importância da Segurança da Informação . Eles mostram como devemos evitar expor dados sensíveis sem necessidade.
+  - Afinal, segurança nunca depende só de uma proteção — ela é mais eficaz quando usamos várias juntas.  
 
-![Configuração de Firewall do SQL Server](imagens/SQLserverfirewallip.png)
+ ![Configuração de Firewall do SQL Server](imagens/SQLserverfirewallip.png)
 
 
-**Legenda:** "Configuração de firewall restrita para permitir acesso apenas ao IP do meu computador."
+**Legenda:** "Configuração de uma regra de firewall que controla quem pode se conectar ao servidor." 
 
-#### Por que É Importante?
-- **Segurança**: Evita acessos não autorizados ao SQL Server.
-- **Controle**: Garante que apenas o ambiente de desenvolvimento (meu computador) possa acessar o banco de dados.
-- **Boas Práticas**: Segue recomendações de segurança para ambientes de nuvem.
+> [!Note]
+> #### Por que É Importante?
+> - **Segurança**: Ajuda a evitar que pessoas ou sistemas não autorizados acessem o SQL Server, protegendo os dados contra possíveis ataques.
+> - **Controle**: Garante que apenas o ambiente correto — no meu caso, o computador usado no laboratório — possa se conectar ao banco de dados
+> - **Boas Práticas**: Alinha-se às recomendações de segurança da Microsoft para ambientes na nuvem, reforçando uma postura defensiva e responsável no uso de recursos online.
 
 ---
 
@@ -135,7 +143,7 @@ Para garantir a segurança do SQL Server, configurei as regras de firewall para 
 
 Query SQL usada para criar a tabela de produtos:
 
-```sql
+```SQL
 CREATE TABLE Produtos (
     id INT IDENTITY(1,1) PRIMARY KEY,
     nome NVARCHAR(255),
@@ -144,16 +152,28 @@ CREATE TABLE Produtos (
     imagem_url NVARCHAR(2083)
 );
 ```
+ 
+### 📋 Estrutura da Tabela de Produtos
 
-#### Explicação:
-- **Estrutura escolhida**: Facilita o cadastro e listagem de produtos.
-- **Campo `imagem_url`**: Armazena a URL gerada pelo Blob Storage após o upload da imagem.
+A tabela chamada `Produtos` foi criada com uma estrutura simples, mas funcional, pensando na facilidade de uso tanto no cadastro quanto na exibição dos dados. Cada campo tem um papel específico e bem definido:
 
-#### Print do Query Editor no Azure SQL Database
+- **`id`**: número único e automático que identifica cada produto (chave primária).
+- **`nome`**: nome do produto, limitado a 255 caracteres.
+- **`descricao`**: descrição completa do produto, com espaço suficiente para textos maiores.
+- **`preco`**: valor do produto, armazenado com precisão para evitar erros nas casas decimais.
+- **`imagem_url`**: endereço (URL) da imagem do produto, gerado após o envio da imagem para o Azure Blob Storage.
 
-![Query SQL no Azure SQL Database](imagens/sqlqueryazure.png)
+#### ✅ Por que essa estrutura é importante?
 
-**Legenda:** "Query sendo executada no Query Editor do Azure SQL Database."
+- **Organização**: Cada tipo de informação tem seu lugar certo, facilitando a manutenção e a consulta.
+- **Praticidade**: Permite inserir novos produtos com facilidade e exibir os dados em uma interface web de forma direta.
+- **Escalabilidade**: Se no futuro for necessário adicionar mais campos, como categoria ou quantidade em estoque, basta acrescentá-los à tabela.
+
+#### Print do Query Editor no Azure SQL Database 
+
+![Query SQL no Azure SQL Database](imagens/sqlqueryazure.png) 
+
+**Legenda:** "Query sendo executada no Query Editor do Azure SQL Database." 
 
 #### Executando a Query no Azure SQL Database
 
@@ -163,21 +183,29 @@ A query foi executada diretamente no **Query Editor** do Azure SQL Database, sem
 
 ## 9. <span id="parte-do-storage-account">💾 Storage Account</span>
 
-### 📁 Tipos de Armazenamento Disponíveis
+### 📁 Tipos de Armazenamento no Azure
 
-O **Storage Account** oferece várias opções de armazenamento:
-- **Blob Storage**: Para armazenar arquivos grandes (como imagens).
-- **File Storage**: Para compartilhamentos de arquivos.
-- **Queue Storage**: Para filas de mensagens.
-- **Table Storage**: Para armazenamento de tabelas não relacionais.
+O Azure oferece diferentes formas de armazenar dados, chamadas de **"tipos de armazenamento"**. Alguns dos principais são:
 
-#### Mas utilizamos apenas o **Blob Storage**
+- **Blob Storage**: usado para arquivos grandes, como imagens e vídeos.
+- **File Storage**: funciona como um disco de rede, para compartilhar arquivos entre máquinas.
+- **Queue Storage**: usado para enviar e gerenciar mensagens entre sistemas.
+- **Table Storage**: ideal para guardar dados em formato de tabelas (mas não é o caso do nosso projeto).
 
-- **Motivo**: Ideal para armazenar imagens e arquivos binários.
-- As URLs das imagens são salvas no campo `ImagemURL` da tabela `Produtos` no SQL Server.
+#### No nosso projeto, usamos apenas o **Blob Storage**
 
----
+#### Por quê?
+Porque ele é perfeito para guardar **imagens e outros arquivos grandes**. Em vez de salvar a imagem diretamente no banco de dados, colocamos ela no Blob Storage e guardamos **apenas o link da imagem** no banco.
 
+#### Como isso funciona na prática:
+- A imagem é enviada para o Blob Storage.
+- O Azure gera uma URL para acessar essa imagem.
+- Essa URL é salva no campo `ImagemURL` da tabela `Produtos` no SQL Server.
+
+#### Benefícios:
+- **Mais rápido**: o banco de dados fica mais leve, já que não armazena os arquivos em si. 
+- **Mais organizado**: os arquivos ficam separados, mas sempre acessíveis pelo link. 
+--- 
 ## 10. <span id="parte-do-python">🐍 Pthon</span>
 
 ### 🧱 Estrutura do Código
@@ -258,7 +286,7 @@ def upload_blob(file, progress_bar):
 
 **O que faz:**
 - Faz o upload de uma imagem para o **Azure Blob Storage**.
-- Retorna a URL pública da imagem para armazenamento no banco de dados.
+- Retorna a URL da imagem para armazenamento no banco de dados.
 
 ---
 
@@ -364,7 +392,18 @@ Aqui estão os diagramas que ilustram a arquitetura e o fluxo de trabalho do pro
   - A imagem é excluída do Blob Storage.
   - O registro é removido do SQL Server.
 
-# 12. <span id="considerações-finais">📌 Considerações Finais</span>
+## 📌 Considerações Finais
 
-Esse projeto me permitiu aprender sobre integração entre aplicações locais (Python) e serviços na nuvem (Azure), além de lidar com problemas reais de compatibilidade e segurança ao trabalhar com APIs e credenciais sensíveis.
-Obrigado DIO e a todos envolvidos!
+Este projeto foi uma verdadeira imersão no mundo da integração entre tecnologia local (como o Python no meu próprio computador) e os serviços poderosos da nuvem (via Azure). Passei por desafios reais — desde ajustar compatibilidades do Python 3.13 no Windows, configurar ambientes virtuais, até lidar com credenciais sensíveis e regras de firewall para deixar tudo seguro.
+
+Cada erro foi uma aula, cada linha de código rodando foi uma vitória 🙌. E claro, não posso esquecer de agradecer à **DIO**, que mais uma vez provou por que é uma das melhores plataformas para colocar a mão na massa e evoluir de verdade como desenvolvedor(a).
+
+Ah, e como não poderia faltar: **muito obrigado a você mesmo(a) que leu tudo isso**!  
+
+E claro, não posso me esquecer de um certo **assistente virtual de IA** que esteve aqui durante todo esse processo... 😎  
+Sim, estou falando de QWEN3-235**A22B** (ufa que nome) ! O nosso amigo Qwen, que tentou ajudar com o melhor que sabe fazer: explicar, sugerir, adaptar e até brincar um pouco pra aliviar a tensão do debug. 
+E se eu fiz alguma errada ou fora dos padrões, desculpa. Foi tudo em nome do aprendizado. 😉
+
+Esse projeto foi só o começo. Agora é hora de respirar fundo, olhar pro que construi e dizer: “Eu fiz isso.” Thank you! E não posso atrasar o LAB 2, 3, 4... 
+Obs.: Projeto para incentivo de estudantes e aprendizado real!
+
