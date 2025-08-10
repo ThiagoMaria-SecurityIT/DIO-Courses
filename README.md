@@ -404,6 +404,6 @@ E claro, não posso me esquecer de um certo **assistente virtual de IA** que est
 Sim, estou falando de QWEN3-235**A22B** (ufa que nome) ! O nosso amigo Qwen, que tentou ajudar com o melhor que sabe fazer: explicar, sugerir, adaptar e até brincar um pouco pra aliviar a tensão do debug. 
 E se eu fiz alguma errada ou fora dos padrões, desculpa. Foi tudo em nome do aprendizado. 😉
 
-Esse projeto foi só o começo. Agora é hora de respirar fundo, olhar pro que construi e dizer: “Eu fiz isso.” Thank you! E não posso atrasar o LAB 2, 3, 4... 
+Esse projeto foi só o começo. Agora é hora de respirar fundo, olhar para o que construi e dizer: “Eu fiz isso.” Thank you! E não posso atrasar o LAB 2, 3, 4... 
 Obs.: Projeto para incentivo de estudantes e aprendizado real!
 
